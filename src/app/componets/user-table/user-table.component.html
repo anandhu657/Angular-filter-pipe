@@ -1,0 +1,20 @@
+<div class="container my-5">
+    <input type="text" placeholder="Search User" class="form-control mb-4" [(ngModel)]="searchText">
+    <table class="table table-active">
+        <thead>
+            <tr  class="bg-danger">
+                <th scope="col">Name</th>
+                <th>Company name</th>
+                <th>Designation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users | search : searchText"
+                [ngClass]="{'table-success':user.company.designation === 'angular Developer'}">
+                <td>{{user.name}}</td>
+                <td>{{user.company.name}}</td>
+                <td>{{user.company.designation}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
